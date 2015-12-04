@@ -1,0 +1,145 @@
+body 
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+#pageContainer
+{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: #070317;
+	position: absolute;
+}
+
+#sidebar
+{
+	height: 100%;
+	width: 188px;
+	background-color: #6265b9;
+	position: absolute;
+	-webkit-box-shadow: inset 0px 0px 16px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 16px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 16px 0px rgba(0,0,0,0.75);
+	left:0;
+	top:0;
+	min-height: 654px;
+	margin-top: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	bottom:0;
+	z-index: 100;
+}
+
+#lunaLogo 
+{
+	width: 143px;
+	height: 143px;
+	z-index: 50;
+	background-image: url(../img/luqt.png);
+	top:20px;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+#lunaText 
+{
+	position:absolute;
+	height:auto;
+	width:inherit;
+	color: #bccdd8;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-weight: 100;
+}
+
+#activestreams {
+	float:left;
+	position:absolute;
+	width:70%;
+	vertical-align:top;
+	text-align:left;
+	display:inline-block;
+	left:188px;
+	height:100%;
+	right:0;
+	bottom:0;
+	top:0;
+	margin-left:20px;
+	margin-top: 20px;
+}
+
+.streamblock { 
+	width: 320px;
+	height: 240px;
+	background: white;
+	border: 1px solid rgb(100,100,100);
+	margin-left:5px;
+	margin-right:5px;
+	margin-bottom:10px;
+	z-index:1
+}
+
+.streamblock :hover {
+		transition: box-shadow .3s;
+	transition: -moz-box-shadow .3s;
+	transition: -webkit-box-shadow .3s;
+	-moz-box-shadow: 0 0 20px rgba(236,241,244,0.7);
+-webkit-box-shadow: 0 0 20px rgba(236,241,244,0.7);
+box-shadow: 0 0 20px rgba(236,241,244,0.7);
+
+}
+
+.streaminfo  {
+	width: 100%;
+	position: absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	height:20%;
+}
+
+
+.streamtitle  {
+	color:white;
+	margin: 0 auto;
+	z-index:25;
+	left:0;
+	top:0;
+	position:absolute;
+	right:0;
+margin: 0 auto;
+text-align:center;
+width: 50%;
+      pointer-events: none;
+
+}
+
+
+.titlediv  {
+	z-index: 23;
+	position:relative;
+		color:white;
+		text-align:center;
+		margin:0 auto;
+	text-shadow: 0px 0px 6px rgba(50, 50, 50, 1);
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 32px;
+	pointer-events:none;
+}
+
+.streamblockcontent  {
+	width:320px;
+	height:240px;
+	position: relative;
+}
+
+.streaminfo {
+	width: 100%;
+height: 35%;
+	position:absolute;
+	bottom:0px;
+	pointer-events:none;
+}

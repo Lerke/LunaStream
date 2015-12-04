@@ -1,10 +1,25 @@
 {
-	"name": "Berrystream",
-	"main": "index.html",
-	"window": 
-	{
-		"toolbar": true,
-		"width": 800,
-		"height": 600
-	}
+"name": "LunaStream",
+"version": "1.0.0",
+"description": "Stream shit. Get paid",
+"main": "lunastream.js",
+"dependencies": {
+"ejs": "^2.3.4",
+"express": "^4.13.3",
+"underscore": "^1.8.3",
+"xml2js": "^0.4.15"
+},
+"devDependencies": {},
+"scripts": {
+"test": "echo \"Error: no test specified\" && exit 1"
+},
+"keywords": [
+"LunaStream"
+],
+"author": "Lerke",
+"license": "MIT",
+"repository": {
+"type": "git",
+"url": "https://github.com/Lerke.luna.git"
+}
 }
