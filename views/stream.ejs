@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script>
+	</script>
+	<link href='http://fonts.googleapis.c
+om/css?family=Alegreya+Sans+SC:100,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/styles/mainstyle.css" />
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	  <link href="http://vjs.zencdn.net/5.3.0/video-js.css" rel="stylesheet">
+	    <script src="http://vjs.zencdn.net/5.3.0/video.js"></script>
+
+	<script src="/js/blur.min.js"></script>
+	<script src="/js/jquery.fittext.js"></script>
+	<script src="/js/stream.js"></script>
+	<body>
+		<div id="pageContainer">
+
+			<div id="sidebar">
+				<span id="lunaText">LUNA</span>
+				<div id="lunaLogo">
+				</div>
+
+			</div>
+			<div id="currentstream">
+				  <video id="video" class="video-js" controls autoplay preload="auto" data-setup="{}">
+    <source src="<%=rtmp%><%=servername%><%=streamlocation%><%=stream%>">
+  </video>
+				<source src="<%=rtmp%><%=servername%><%=streamlocation%><%=stream%>"></video>
+
+</video>
+			
+			</div>
+		</div>
+	</body>
+
+</html>

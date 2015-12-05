@@ -21,6 +21,8 @@ var hostname;
 var statpath;
 var cachepath;
 var serverprefix;
+var rtmpstring;
+var streamlocation;
 
 var xmlparser = new xml2js.Parser();
 
@@ -36,11 +38,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function (request, response) {
-	response.render('streamlist.ejs', {Host: JSON.stringify(StreamController), servername: hostname, cache: cachepath, prefix: serverprefix});
+	response.render('streamlist.ejs', { Host: JSON.stringify(StreamController), servername: hostname, cache: cachepath, prefix: serverprefix });
 });
 
 app.get('/streams/:stream', function (request, response) {
-	response.render('stream.ejs');
+	response.render('stream.ejs', { rtmp: rtmpstring, servername: hostname, streamlocation: streamlocation, stream: request.params.stream });
 });
 
 setInterval(UpdateStreams, 5000);
@@ -53,6 +55,8 @@ function InitVariables() {
 	statpath = optionVars["path"];
 	cachepath = optionVars["cache"];
 	serverprefix = optionVars["prefix"];
+	rtmpstring = optionVars["protocolprefix"];
+	streamlocation = optionVars["streamlocation"];
 	UpdateStreams();
 }
 
@@ -69,10 +73,10 @@ function UpdateStreams() {
 		response.on('end', function () {
 			//update our streams list here.
 			xmlparser.parseString(cresponse, function (err, data) {
-
-				var streamdata = data["rtmp"]["server"][0]["application"][0]["live"][0];
-				var Streams = [];
-				for (var stream in streamdata["stream"]) {
+				try {
+					var streamdata = data["rtmp"]["server"][0]["application"][0]["live"][0];
+					var Streams = [];
+					for (var stream in streamdata["stream"]) {
 						var videoData = new Video(
 							streamdata["stream"][stream]["meta"][0]["video"][0]["width"][0],
 							streamdata["stream"][stream]["meta"][0]["video"][0]["height"][0],
@@ -92,9 +96,12 @@ function UpdateStreams() {
 							streamdata["stream"][stream]["nclients"]
 							);
 						Streams.push(newStream);
+					}
+					StreamController.streams = Streams;
+					StreamController.clients = streamdata.nclients;
+				} catch (err) {
+					console.log(err);
 				}
-				StreamController.streams = Streams;
-				StreamController.clients = streamdata.nclients;
 			});
 		});
 	});
